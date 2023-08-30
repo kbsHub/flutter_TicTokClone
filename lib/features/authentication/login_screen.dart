@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tictok/constants/gaps.dart';
 import 'package:flutter_tictok/constants/sizes.dart';
-import 'package:flutter_tictok/features/authentication/username_screen.dart';
+import 'package:flutter_tictok/features/authentication/login_form_screen.dart';
 import 'package:flutter_tictok/features/authentication/widgets/auth_button.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -12,19 +12,17 @@ class LogInScreen extends StatelessWidget {
     Navigator.of(context).pop();
   }
 
-  void _onEmailButtonTap(BuildContext context) {
+  void _onLogIn1Tap(BuildContext context) {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const UserNameScreen()));
+        .push(MaterialPageRoute(builder: (context) => const LoginFormScreen()));
   }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: Sizes.size32,
-      ),
-      child: Scaffold(
-        body: SafeArea(
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: Sizes.size16),
           child: Column(
             children: [
               Gaps.v80,
@@ -47,42 +45,42 @@ class LogInScreen extends StatelessWidget {
               AuthButton(
                 text: "Use email / username",
                 icon: const FaIcon(FontAwesomeIcons.user),
-                onButtonTap: _onEmailButtonTap,
+                onButtonTap: _onLogIn1Tap,
               ),
               Gaps.v16,
               AuthButton(
                 text: "Continue with Google",
                 icon: const FaIcon(FontAwesomeIcons.google),
-                onButtonTap: _onEmailButtonTap,
+                onButtonTap: _onLogIn1Tap,
               ),
             ],
           ),
         ),
-        bottomNavigationBar: BottomAppBar(
-          elevation: 1,
-          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
-          color: Colors.white.withOpacity(0.8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text(
-                "Already have an account?",
-                style: TextStyle(fontSize: Sizes.size16),
-              ),
-              Gaps.h5,
-              GestureDetector(
-                onTap: () => _onSignUpTap(context),
-                child: Text(
-                  "Sign Up",
-                  style: TextStyle(
-                    fontSize: Sizes.size16,
-                    color: Theme.of(context).primaryColor,
-                  ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        elevation: 1,
+        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+        color: Colors.white.withOpacity(0.8),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Text(
+              "Already have an account?",
+              style: TextStyle(fontSize: Sizes.size16),
+            ),
+            Gaps.h5,
+            GestureDetector(
+              onTap: () => _onSignUpTap(context),
+              child: Text(
+                "Sign Up",
+                style: TextStyle(
+                  fontSize: Sizes.size16,
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

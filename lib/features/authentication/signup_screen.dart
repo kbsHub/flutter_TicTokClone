@@ -15,18 +15,17 @@ class SignUpScreen extends StatelessWidget {
   }
 
   void _onEmailButtonTap(BuildContext context) {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const UserNameScreen()));
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) => const UserNameScreen()),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: Sizes.size32,
-      ),
-      child: Scaffold(
-        body: SafeArea(
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: Sizes.size16),
           child: Column(
             children: [
               Gaps.v80,
@@ -60,31 +59,31 @@ class SignUpScreen extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: BottomAppBar(
-          elevation: 1,
-          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
-          color: Colors.white.withOpacity(0.8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text(
-                "Already have an account?",
-                style: TextStyle(fontSize: Sizes.size16),
-              ),
-              Gaps.h5,
-              GestureDetector(
-                onTap: () => _onLogInTap(context),
-                child: Text(
-                  "Log In",
-                  style: TextStyle(
-                    fontSize: Sizes.size16,
-                    color: Theme.of(context).primaryColor,
-                  ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        elevation: 1,
+        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+        color: Colors.white.withOpacity(0.8),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Text(
+              "Already have an account?",
+              style: TextStyle(fontSize: Sizes.size16),
+            ),
+            Gaps.h5,
+            GestureDetector(
+              onTap: () => _onLogInTap(context),
+              child: Text(
+                "Log In",
+                style: TextStyle(
+                  fontSize: Sizes.size16,
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

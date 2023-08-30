@@ -5,10 +5,10 @@ import '../../../constants/sizes.dart';
 class FormButton extends StatelessWidget {
   const FormButton({
     super.key,
-    required this.isUserInputEmpty,
+    required this.isButtonValid,
   });
 
-  final bool isUserInputEmpty;
+  final bool isButtonValid;
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +19,12 @@ class FormButton extends StatelessWidget {
         alignment: Alignment.center,
         duration: const Duration(milliseconds: 300),
         decoration: BoxDecoration(
-            color: isUserInputEmpty
-                ? Colors.grey
-                : Theme.of(context).primaryColor),
+            color:
+                isButtonValid ? Theme.of(context).primaryColor : Colors.grey),
         child: AnimatedDefaultTextStyle(
           duration: const Duration(milliseconds: 300),
           style: TextStyle(
-              color: isUserInputEmpty ? Colors.white54 : Colors.white,
+              color: isButtonValid ? Colors.white : Colors.white54,
               fontSize: Sizes.size20),
           child: const Text("Next"),
         ),
